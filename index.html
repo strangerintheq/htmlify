@@ -1,10 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>htmlify</title>
+    <title>HTMLify</title>
     <script src="htmlify.js"></script>
+    <style>
+        body {
+            margin: 0;
+            background-color: #4e4e4e;
+        }
+
+        #title {
+            text-align: center;
+            font-size: 80px;
+            line-height: 90px;
+            padding: 50px 0 50px 0;
+            height: 90px;
+            font-family: Arial, sans-serif;
+            color: #f3f5ec;
+        }
+
+        #example {
+            width: 1000px;
+            height: 700px;
+            overflow: auto;
+            background-color: #3b3b3b;
+            padding: 5px;
+            margin: 0 auto;
+        }
+    </style>
 </head>
 <body>
+    <div id="title">HTMLify</div>
+    <div id="example"></div>
     <script>
         var request = new XMLHttpRequest();
         request.open('get', 'example.json', true);
@@ -12,10 +39,13 @@
         request.send();
 
         function onLoad() {
-            if (request.readyState !== 4)
-                return;
+            if (request.readyState !== 4) return;
             var json = JSON.parse(request.responseText);
-            document.body.appendChild(htmlify(json));
+            document.querySelector('#example').appendChild(htmlify(json, {
+                size: 24,
+                keyColor: '#a85bb0',
+                color: '#c1c1c1'
+            }));
             console.log(json);
         }
     </script>

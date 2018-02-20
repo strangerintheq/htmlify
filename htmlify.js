@@ -1,15 +1,18 @@
 var htmlify = (function() {
 
-    var SIZE = '18px';
-    var KEY_COLOR = '#099919';
+    var Q = '"';
 
-    return function (json) {
-        return bush(typeof json, json, true);
+    return function (json, props) {
+        return bush(typeof json, json, true, props).expandOrCollapse();
     };
 
-    function bush(name, json, last) {
+    function bush(name, json, last, props) {
 
-        var isObject = typeof json === "object" && json != null;
+        props.size = props.size || 15;
+        props.color = props.color || 'black';
+        props.keyColor = props.keyColor || 'brown';
+
+        var isObject = typeof json === "object" && json !== null;
         var isArray = Array.isArray(json);
         var start = isArray ? '[' : '{';
         var end = isArray ? ']' : '}';
@@ -17,53 +20,60 @@ var htmlify = (function() {
 
         var node = document.createElement('div');
         node.style.fontFamily = "Arial, sans-serif";
-        node.style.fontSize = node.style.lineHeight = SIZE;
+        node.style.fontSize = props.size + 'px';
+        node.style.color = props.color;
+        node.style.lineHeight = Math.floor(props.size * 1.3) + 'px';
 
         var content = document.createElement('div');
-        content.style.marginLeft = SIZE;
+        content.style.marginLeft = props.size + 'px';
 
         if (!isObject) {
-            content.innerHTML = color(name, KEY_COLOR) + ': ' +
-                (typeof json === 'string' ? '"' + json + '"' : json);
-            node.appendChild(content);
+            node.appendChild(content).innerHTML = color(name, props.keyColor) +
+                ': ' + (typeof json === 'string' ? Q + json + Q : json);
             return node;
         }
 
         json && Object.keys(json).forEach(function (key, i, arr) {
-            content.appendChild(bush('"' + key + '"', json[key], i === arr.length - 1));
+            content.appendChild(bush(Q + key + Q, json[key],
+                i === arr.length - 1, props));
         });
 
-        var expander = document.createElement('span');
-        expander.innerHTML = '&#x25BC;';
-        expander.style.cursor = "pointer";
-        expander.style.userSelect = "none";
-        expander.style.display = "inline-block";
-        expander.style.width = SIZE;
-        expander.addEventListener('click', expandOrCollapse);
-
-        var title = document.createElement('span');
-        title.innerHTML = color(name, KEY_COLOR) + ': ' + start;
-
         var header = document.createElement('div');
+        var footer = document.createElement('div');
+        var title = document.createElement('span');
+
+        var expander = createExpander();
+        footer.style.marginLeft = props.size + 'px';
+        title.innerHTML = color(name, props.keyColor) + ': ' + start;
+
         header.appendChild(expander);
         header.appendChild(title);
-
-        var footer = document.createElement('div');
-        footer.style.marginLeft = SIZE;
-        footer.innerHTML = end;
-
         node.appendChild(header);
         node.appendChild(content);
         node.appendChild(footer);
-
+        node.expandOrCollapse = expandOrCollapse;
+        expandOrCollapse();
         return node;
+
+        function createExpander() {
+            var expander = document.createElement('span');
+            expander.innerHTML = '&#x25BC;';
+            expander.style.cursor = "pointer";
+            expander.style.userSelect = "none";
+            expander.style.display = "inline-block";
+            expander.style.width = props.size + 'px';
+            expander.addEventListener('click', expandOrCollapse);
+            return expander;
+        }
 
         function expandOrCollapse() {
             var collapsed = !header.classList.toggle('json-node-header-collapsed');
             expander.innerHTML = collapsed ? '&#x25BC;' : '&#x25B6;';
             content.style.display = collapsed ? 'block' : 'none';
-            title.innerHTML = color(name, KEY_COLOR) + ': ' + start + (collapsed ? '' : Object.keys(json).length + end);
+            title.innerHTML = color(name, props.keyColor) + ': ' +
+                start + (collapsed ? '' : Object.keys(json).length + end);
             footer.innerHTML = collapsed ? end : '';
+            return node;
         }
     }
 
