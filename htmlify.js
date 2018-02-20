@@ -57,9 +57,9 @@ var htmlify = (function() {
 
         function createExpander() {
             var expander = document.createElement('span');
-            expander.style.cursor = "pointer";
-            expander.style.userSelect = "none";
-            expander.style.display = "inline-block";
+            expander.style.cursor = 'pointer';
+            expander.style.userSelect = 'none';
+            expander.style.display = 'inline-block';
             expander.style.width = props.size + 'px';
             expander.addEventListener('click', expandOrCollapse);
             return expander;
