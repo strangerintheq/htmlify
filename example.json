@@ -32,13 +32,13 @@
               "@attributes": {
                 "xsi:type": "xsd:int"
               },
-              "#text": "4"
+              "#text": 4
             },
             "isConnected": {
               "@attributes": {
                 "xsi:type": "xsd:boolean"
               },
-              "#text": "true"
+              "#text": true
             },
             "lastUpdateTime": {
               "@attributes": {
@@ -56,13 +56,13 @@
               "@attributes": {
                 "xsi:type": "xsd:boolean"
               },
-              "#text": "true"
+              "#text": null
             },
             "leftFramesCapacity": {
               "@attributes": {
                 "xsi:type": "xsd:int"
               },
-              "#text": "1081"
+              "#text": 1
             },
             "totalFramesCapacity": {
               "@attributes": {

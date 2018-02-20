@@ -9,7 +9,7 @@ var htmlify = (function() {
 
     function bush(name, json, last) {
 
-        var isObject = typeof json === "object";
+        var isObject = typeof json === "object" && json != null;
         var isArray = Array.isArray(json);
         var start = isArray ? '[' : '{';
         var end = isArray ? ']' : '}';
@@ -23,13 +23,14 @@ var htmlify = (function() {
         content.style.marginLeft = SIZE;
 
         if (!isObject) {
-            content.innerHTML = color(name, KEY_COLOR) + ': ' + json;
+            content.innerHTML = color(name, KEY_COLOR) + ': ' +
+                (typeof json === 'string' ? '"' + json + '"' : json);
             node.appendChild(content);
             return node;
         }
 
-        Object.keys(json).forEach(function (key, i, arr) {
-            content.appendChild(bush(key, json[key], i === arr.length - 1));
+        json && Object.keys(json).forEach(function (key, i, arr) {
+            content.appendChild(bush('"' + key + '"', json[key], i === arr.length - 1));
         });
 
         var expander = document.createElement('span');
@@ -61,7 +62,7 @@ var htmlify = (function() {
             var collapsed = !header.classList.toggle('json-node-header-collapsed');
             expander.innerHTML = collapsed ? '&#x25BC;' : '&#x25B6;';
             content.style.display = collapsed ? 'block' : 'none';
-            title.innerHTML = color(name, KEY_COLOR) + ': ' + start + (collapsed ? '' : '...' + end);
+            title.innerHTML = color(name, KEY_COLOR) + ': ' + start + (collapsed ? '' : Object.keys(json).length + end);
             footer.innerHTML = collapsed ? end : '';
         }
     }
