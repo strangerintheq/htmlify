@@ -67,12 +67,12 @@ var htmlify = (function() {
         }
 
         function expandOrCollapse() {
-            node.collapsed = !node.collapsed;
             expander.innerHTML = node.collapsed ? '&#x25BC;' : '&#x25B6;';
             content.style.display = node.collapsed ? 'block' : 'none';
             title.innerHTML = color(name, props.keyColor) + ': ' +
                 start + (node.collapsed ? '' : Object.keys(json).length + end);
             footer.innerHTML = node.collapsed ? end : '';
+            node.collapsed = !node.collapsed;
             return node;
         }
     }
