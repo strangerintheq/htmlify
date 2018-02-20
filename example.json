@@ -1,0 +1,347 @@
+{
+  "@attributes": {
+    "xmlns:SOAP-ENV": "http://schemas.xmlsoap.org/soap/envelope/",
+    "xmlns:SOAP-ENC": "http://schemas.xmlsoap.org/soap/encoding/",
+    "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+    "xmlns:xsd": "http://www.w3.org/2001/XMLSchema",
+    "xmlns:ns1": "http://recetu.com/"
+  },
+  "SOAP-ENV:Header": {},
+  "SOAP-ENV:Body": {
+    "ns1:getStateResponse": {
+      "state": {
+        "@attributes": {
+          "xsi:type": "ns1:state"
+        },
+        "idleState": {
+          "@attributes": {
+            "xsi:type": "ns1:idleState"
+          }
+        },
+        "recorderState": [
+          {
+            "@attributes": {
+              "xsi:type": "ns1:recorderState"
+            },
+            "idleState": {
+              "@attributes": {
+                "xsi:type": "ns1:idleState"
+              }
+            },
+            "recorderId": {
+              "@attributes": {
+                "xsi:type": "xsd:int"
+              },
+              "#text": "4"
+            },
+            "isConnected": {
+              "@attributes": {
+                "xsi:type": "xsd:boolean"
+              },
+              "#text": "true"
+            },
+            "lastUpdateTime": {
+              "@attributes": {
+                "xsi:type": "xsd:string"
+              },
+              "#text": "20180220T143659.415083"
+            },
+            "videoPresent": {
+              "@attributes": {
+                "xsi:type": "xsd:boolean"
+              },
+              "#text": "true"
+            },
+            "synchroPresent": {
+              "@attributes": {
+                "xsi:type": "xsd:boolean"
+              },
+              "#text": "true"
+            },
+            "leftFramesCapacity": {
+              "@attributes": {
+                "xsi:type": "xsd:int"
+              },
+              "#text": "1081"
+            },
+            "totalFramesCapacity": {
+              "@attributes": {
+                "xsi:type": "xsd:int"
+              },
+              "#text": "4810"
+            },
+            "statisticElement": [
+              {
+                "@attributes": {
+                  "description": "Неполные кадры",
+                  "value": "0",
+                  "xsi:type": "ns1:statisticElement"
+                }
+              },
+              {
+                "@attributes": {
+                  "description": "Пропущенные пакеты",
+                  "value": "0",
+                  "xsi:type": "ns1:statisticElement"
+                }
+              }
+            ]
+          },
+          {
+            "@attributes": {
+              "xsi:type": "ns1:recorderState"
+            },
+            "idleState": {
+              "@attributes": {
+                "xsi:type": "ns1:idleState"
+              }
+            },
+            "recorderId": {
+              "@attributes": {
+                "xsi:type": "xsd:int"
+              },
+              "#text": "5"
+            },
+            "isConnected": {
+              "@attributes": {
+                "xsi:type": "xsd:boolean"
+              },
+              "#text": "true"
+            },
+            "lastUpdateTime": {
+              "@attributes": {
+                "xsi:type": "xsd:string"
+              },
+              "#text": "20180220T143659.415338"
+            },
+            "videoPresent": {
+              "@attributes": {
+                "xsi:type": "xsd:boolean"
+              },
+              "#text": "true"
+            },
+            "synchroPresent": {
+              "@attributes": {
+                "xsi:type": "xsd:boolean"
+              },
+              "#text": "true"
+            },
+            "leftFramesCapacity": {
+              "@attributes": {
+                "xsi:type": "xsd:int"
+              },
+              "#text": "1070"
+            },
+            "totalFramesCapacity": {
+              "@attributes": {
+                "xsi:type": "xsd:int"
+              },
+              "#text": "4810"
+            },
+            "statisticElement": [
+              {
+                "@attributes": {
+                  "description": "Неполные кадры",
+                  "value": "0",
+                  "xsi:type": "ns1:statisticElement"
+                }
+              },
+              {
+                "@attributes": {
+                  "description": "Пропущенные пакеты",
+                  "value": "0",
+                  "xsi:type": "ns1:statisticElement"
+                }
+              }
+            ]
+          }
+        ],
+        "turnerSettings": {
+          "@attributes": {
+            "xsi:type": "ns1:turnerSettings"
+          },
+          "turnerPosition": {
+            "@attributes": {
+              "xsi:type": "ns1:direction"
+            },
+            "azimuth": {
+              "@attributes": {
+                "xsi:type": "ns1:azimuth"
+              },
+              "#text": "20"
+            },
+            "elevation": {
+              "@attributes": {
+                "xsi:type": "ns1:elevation"
+              },
+              "#text": "10"
+            }
+          },
+          "inclinometerParameters": {
+            "@attributes": {
+              "xsi:type": "ns1:inclinometerParameters"
+            },
+            "x": {
+              "@attributes": {
+                "xsi:type": "xsd:double"
+              },
+              "#text": "-0.071111111111111111"
+            },
+            "y": {
+              "@attributes": {
+                "xsi:type": "xsd:double"
+              },
+              "#text": "-0.071111111111111111"
+            }
+          },
+          "blockingMode": {
+            "@attributes": {
+              "xsi:type": "ns1:blockingMode"
+            },
+            "isAutoBlockingMode": {
+              "@attributes": {
+                "xsi:type": "xsd:boolean"
+              },
+              "#text": "true"
+            },
+            "isAzimuthBlocked": {
+              "@attributes": {
+                "xsi:type": "xsd:boolean"
+              },
+              "#text": "true"
+            },
+            "isElevationBlocked": {
+              "@attributes": {
+                "xsi:type": "xsd:boolean"
+              },
+              "#text": "true"
+            }
+          },
+          "useSunProtection": {
+            "@attributes": {
+              "xsi:type": "xsd:boolean"
+            },
+            "#text": "true"
+          },
+          "sunDanger": {
+            "@attributes": {
+              "xsi:type": "xsd:boolean"
+            },
+            "#text": "false"
+          },
+          "sunPosition": {
+            "@attributes": {
+              "xsi:type": "ns1:direction"
+            },
+            "azimuth": {
+              "@attributes": {
+                "xsi:type": "ns1:azimuth"
+              },
+              "#text": "201.90073302732847"
+            },
+            "elevation": {
+              "@attributes": {
+                "xsi:type": "ns1:elevation"
+              },
+              "#text": "17.196684936111481"
+            }
+          },
+          "turnerInManualMode": {
+            "@attributes": {
+              "xsi:type": "xsd:boolean"
+            },
+            "#text": "false"
+          }
+        },
+        "cameraSettings": {
+          "@attributes": {
+            "bitCount": "12",
+            "blind": "1",
+            "synchronizationType": "MIDDLE",
+            "strengthening": "1",
+            "xsi:type": "ns1:cameraSettings"
+          },
+          "exposure": {
+            "@attributes": {
+              "type": "MANUAL",
+              "friendlyName": "1/8",
+              "value": "125000",
+              "xsi:type": "ns1:exposureDescriptor"
+            }
+          }
+        },
+        "lastSyncroimpulse": {
+          "@attributes": {
+            "time": "20180220T113732",
+            "xsi:type": "ns1:syncroimpulse"
+          },
+          "timeSettings": {
+            "@attributes": {
+              "timeType": "ANALOG_SEV",
+              "synchronizationShift": "false",
+              "frequency": "1",
+              "xsi:type": "ns1:timeSettings"
+            }
+          }
+        },
+        "isSyncSystemConnected": {
+          "@attributes": {
+            "xsi:type": "xsd:boolean"
+          },
+          "#text": "true"
+        },
+        "deadZone": {
+          "@attributes": {
+            "xsi:type": "ns1:deadZone"
+          },
+          "topLeft": {
+            "@attributes": {
+              "xsi:type": "ns1:direction"
+            },
+            "azimuth": {
+              "@attributes": {
+                "xsi:type": "ns1:azimuth"
+              },
+              "#text": "351"
+            },
+            "elevation": {
+              "@attributes": {
+                "xsi:type": "ns1:elevation"
+              },
+              "#text": "348"
+            }
+          },
+          "bottomRight": {
+            "@attributes": {
+              "xsi:type": "ns1:direction"
+            },
+            "azimuth": {
+              "@attributes": {
+                "xsi:type": "ns1:azimuth"
+              },
+              "#text": "1"
+            },
+            "elevation": {
+              "@attributes": {
+                "xsi:type": "ns1:elevation"
+              },
+              "#text": "192"
+            }
+          }
+        },
+        "diskUsagePercentage": {
+          "@attributes": {
+            "xsi:type": "xsd:int"
+          },
+          "#text": "48"
+        },
+        "debugString": {
+          "@attributes": {
+            "xsi:type": "xsd:string"
+          },
+          "#text": "STATE BEGIN\nrecorder_state {\n  recorder_states {\n    recorder_id: 4\n    time: \"20180220T143659.415083\"\n    is_connected: true\n    state {\n      video_present: true\n      synchro_present: true\n      left_frames_capacity: 1081\n      total_frames_capacity: 4810\n      frequency: 1\n      statistic_element {\n        description: \"Неполные кадры\"\n        value: 0\n      }\n      statistic_element {\n        description: \"Пропущенные пакеты\"\n        value: 0\n      }\n      idle_state {\n      }\n    }\n  }\n  recorder_states {\n    recorder_id: 5\n    time: \"20180220T143659.415338\"\n    is_connected: true\n    state {\n      video_present: true\n      synchro_present: true\n      left_frames_capacity: 1070\n      total_frames_capacity: 4810\n      frequency: 1\n      statistic_element {\n        description: \"Неполные кадры\"\n        value: 0\n      }\n      statistic_element {\n        description: \"Пропущенные пакеты\"\n        value: 0\n      }\n      idle_state {\n      }\n    }\n  }\n  idle_state {\n  }\n}\ncamera_info {\n  camera_id: 1\n  camera_settings {\n    exposure: 125000\n    gain: 1\n    bit_count: 12\n    blind: 1\n    exposure_type: MANUAL_EXPOSURE\n    sync_type: MIDDLE\n    freq: HERTZ_1\n    amplification: 5\n  }\n}\ncamera_info {\n  camera_id: 2\n  camera_settings {\n    exposure: 125000\n    gain: 1\n    bit_count: 12\n    blind: 1\n    exposure_type: MANUAL_EXPOSURE\n    sync_type: MIDDLE\n    freq: HERTZ_1\n    amplification: 5\n  }\n}\ncamera_info {\n  camera_id: 3\n  camera_settings {\n    exposure: 125000\n    gain: 1\n    bit_count: 12\n    blind: 1\n    exposure_type: MANUAL_EXPOSURE\n    sync_type: MIDDLE\n    freq: HERTZ_1\n    amplification: 5\n  }\n}\ncamera_info {\n  camera_id: 4\n  camera_settings {\n    exposure: 125000\n    gain: 1\n    bit_count: 12\n    blind: 1\n    exposure_type: MANUAL_EXPOSURE\n    sync_type: MIDDLE\n    freq: HERTZ_1\n    amplification: 5\n  }\n}\ncamera_info {\n  camera_id: 5\n  camera_settings {\n    exposure: 125000\n    gain: 1\n    bit_count: 12\n    blind: 1\n    exposure_type: MANUAL_EXPOSURE\n    sync_type: MIDDLE\n    freq: HERTZ_1\n    amplification: 5\n  }\n}\nturner_data {\n  turner_position {\n    azimuth: 20\n    elevation: 10\n  }\n  inclinometer_parameters {\n    x: -0.071111111111111111\n    y: -0.071111111111111111\n  }\n  is_exposed_by_the_sun: false\n  use_sun_protection: true\n  sun_position {\n    azimuth: 201.90073302732847\n    elevation: 17.196684936111481\n  }\n  theodolite_state {\n    turner_position {\n      azimuth: 72000000\n      elevation: 36000000\n    }\n    inclinometer_parameters {\n      x: -256000\n      y: -256000\n    }\n    blocking_mode {\n      is_auto_blocking_mode: true\n      is_azimuth_blocked: true\n      is_elevation_blocked: true\n    }\n  }\n}\nlast_syncroimpulse {\n  time: \"20180220T113732\"\n  synchroimpulse_number: 3642589\n  state {\n    frequency: HERTZ_1\n    time_source_type: ANALOG_SEV\n    synchronization_shift_mode: false\n    impulse_shift_time_us: 0\n    digital_sev_interface_type: RS485\n    available_time_sources: ANALOG_SEV\n    available_time_sources: DIGITAL_SEV\n    available_time_sources: GNSS\n  }\n}\nis_sync_system_turned_on: true\nidle_state {\n}\n\nSTATE END"
+        }
+      }
+    }
+  }
+}

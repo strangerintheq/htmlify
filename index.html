@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>htmlify</title>
+    <script src="htmlify.js"></script>
+</head>
+<body>
+    <script>
+        var request = new XMLHttpRequest();
+        request.open('get', 'example.json', true);
+        request.onreadystatechange = onLoad;
+        request.send();
+
+        function onLoad() {
+            if (request.readyState !== 4)
+                return;
+            var json = JSON.parse(request.responseText);
+            document.body.appendChild(htmlify(json));
+            console.log(json);
+        }
+    </script>
+</body>
+</html>
