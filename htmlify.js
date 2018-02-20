@@ -57,7 +57,6 @@ var htmlify = (function() {
 
         function createExpander() {
             var expander = document.createElement('span');
-            expander.innerHTML = '&#x25BC;';
             expander.style.cursor = "pointer";
             expander.style.userSelect = "none";
             expander.style.display = "inline-block";
