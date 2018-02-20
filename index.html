@@ -39,13 +39,18 @@
         request.send();
 
         function onLoad() {
-            if (request.readyState !== 4) return;
+
+            if (request.readyState !== 4)
+                return;
+
             var json = JSON.parse(request.responseText);
+
             document.querySelector('#example').appendChild(htmlify(json, {
                 size: 24,
                 keyColor: '#a85bb0',
                 color: '#c1c1c1'
             }));
+
             console.log(json);
         }
     </script>

@@ -12,14 +12,14 @@ var htmlify = (function() {
         props.color = props.color || 'black';
         props.keyColor = props.keyColor || 'brown';
 
-        var isObject = typeof json === "object" && json !== null;
+        var isObject = typeof json === 'object' && json !== null;
         var isArray = Array.isArray(json);
         var start = isArray ? '[' : '{';
         var end = isArray ? ']' : '}';
         !last && (end += ',');
 
         var node = document.createElement('div');
-        node.style.fontFamily = "Arial, sans-serif";
+        node.style.fontFamily = 'Arial, sans-serif';
         node.style.fontSize = props.size + 'px';
         node.style.color = props.color;
         node.style.lineHeight = Math.floor(props.size * 1.3) + 'px';
@@ -67,12 +67,12 @@ var htmlify = (function() {
         }
 
         function expandOrCollapse() {
-            var collapsed = !header.classList.toggle('json-node-header-collapsed');
-            expander.innerHTML = collapsed ? '&#x25BC;' : '&#x25B6;';
-            content.style.display = collapsed ? 'block' : 'none';
+            node.collapsed = !node.collapsed;
+            expander.innerHTML = node.collapsed ? '&#x25BC;' : '&#x25B6;';
+            content.style.display = node.collapsed ? 'block' : 'none';
             title.innerHTML = color(name, props.keyColor) + ': ' +
-                start + (collapsed ? '' : Object.keys(json).length + end);
-            footer.innerHTML = collapsed ? end : '';
+                start + (node.collapsed ? '' : Object.keys(json).length + end);
+            footer.innerHTML = node.collapsed ? end : '';
             return node;
         }
     }
