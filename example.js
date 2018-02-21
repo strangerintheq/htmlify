@@ -19,9 +19,7 @@ function load() {
             expanded: prev ? prev.expanded : {},
             size: 24,
             keyColor: '#a85bb0',
-            color: '#c1c1c1',
-            ignoreKeysContains: 'xsi:',
-            filterEmpty: true
+            color: '#c1c1c1'
         });
 
         element.innerHTML = '';
