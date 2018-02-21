@@ -3,10 +3,14 @@ var htmlify = (function() {
     var Q = '"';
 
     return function (json, props) {
-        return bush(typeof json, json, true, props).expandOrCollapse();
+        if (!props.expanded)
+            props.expanded = {};
+        var tree = bush(typeof json, json, true, props);
+        tree.expanded = props.expanded;
+        return tree;
     };
 
-    function bush(name, json, last, props) {
+    function bush(name, json, last, props, parent) {
 
         props.size = props.size || 15;
         props.color = props.color || 'black';
@@ -19,6 +23,7 @@ var htmlify = (function() {
         !last && (end += ',');
 
         var node = document.createElement('div');
+        node.name = parent ? parent + '.' + name : name;
         node.style.fontFamily = 'Arial, sans-serif';
         node.style.fontSize = props.size + 'px';
         node.style.color = props.color;
@@ -35,7 +40,7 @@ var htmlify = (function() {
 
         json && Object.keys(json).forEach(function (key, i, arr) {
             content.appendChild(bush(Q + key + Q, json[key],
-                i === arr.length - 1, props));
+                i === arr.length - 1, props, node.name));
         });
 
         var header = document.createElement('div');
@@ -44,7 +49,6 @@ var htmlify = (function() {
 
         var expander = createExpander();
         footer.style.marginLeft = props.size + 'px';
-        title.innerHTML = color(name, props.keyColor) + ': ' + start;
 
         header.appendChild(expander);
         header.appendChild(title);
@@ -52,7 +56,12 @@ var htmlify = (function() {
         node.appendChild(content);
         node.appendChild(footer);
         node.expandOrCollapse = expandOrCollapse;
-        expandOrCollapse();
+
+        update();
+
+        if (props.expanded[node.name])
+            expandOrCollapse();
+
         return node;
 
         function createExpander() {
@@ -65,13 +74,21 @@ var htmlify = (function() {
             return expander;
         }
 
-        function expandOrCollapse() {
-            expander.innerHTML = node.collapsed ? '&#x25BC;' : '&#x25B6;';
-            content.style.display = node.collapsed ? 'block' : 'none';
+        function update() {
+            expander.innerHTML = node.collapsed ? '&#x25B6;' : '&#x25BC;';
+            content.style.display = node.collapsed ? 'none' : 'block';
             title.innerHTML = color(name, props.keyColor) + ': ' +
-                start + (node.collapsed ? '' : Object.keys(json).length + end);
-            footer.innerHTML = node.collapsed ? end : '';
+                start + (node.collapsed ? Object.keys(json).length + end : '');
+            footer.innerHTML = node.collapsed ? '' : end;
+        }
+
+        function expandOrCollapse() {
             node.collapsed = !node.collapsed;
+            if (!node.collapsed)
+                delete props.expanded[node.name];
+            else
+                props.expanded[node.name] = true;
+            update();
             return node;
         }
     }
