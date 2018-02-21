@@ -1,3 +1,5 @@
+load();
+
 function load() {
     var request = new XMLHttpRequest();
     request.open('get', 'example.json', true);
