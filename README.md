@@ -9,7 +9,7 @@ Example: https://rawgit.com/strangerintheq/htmlify/master/index.html
 Features:
 - pretty print JSON with colors
 - expandable nodes
-- (coming soon) possibility to preserve collapse state on updates
+- possibility to preserve collapse state on updates
 
 
 Tested enviroment:
