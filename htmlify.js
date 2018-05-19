@@ -3,6 +3,8 @@ var htmlify = (function() {
     var Q = '"';
 
     return function (json, props) {
+        if (!props)
+            props = {};
         if (!props.expanded)
             props.expanded = {};
         var tree = bush(typeof json, json, true, props);
